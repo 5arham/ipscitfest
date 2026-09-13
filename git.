@@ -1,0 +1,46 @@
+IPSC IT Fest 2026: a zero-dependency static site generator
+
+The site for an inter-school IT fest at The Doon School, 8 to 10 December 2026,
+covering eight events. `node build.mjs` renders eighteen pages into ./site from
+one data file and one stylesheet, with no dependencies at all.
+
+Why a generator rather than nineteen hand-written files: every page shares a
+rail, a bar, a drawer, a footer and a command palette, and every fact comes
+from one place. Hand-editing nineteen copies of that chrome is how a site
+drifts out of sync with itself before it ever ships.
+
+Assets are fingerprinted with a content hash because school and institutional
+hosting caches stylesheets hard, and without that a redeploy ships new markup
+against last week's CSS. That is a real failure that happens to real school
+sites, and it costs one line of build code to prevent.
+
+Note PUBLISHING.md: the data file contains the real names, biographies and
+letters of about two dozen students, most of them minors, so this repository is
+private and must have that data replaced with fictional entries before it is
+ever made public. The generator is the part worth showing; the roster is not
+mine to publish.
+
+The rendered ./site is gitignored: it is a build artifact, and the generator
+plus the data file are the source of truth.
+
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+	autocrlf = true
+[user]
+	name = Ved Agrawal
+	email = 241257205+ved2010-05@users.noreply.github.com
+[remote "origin"]
+	url = https://github.com/ved2010-05/ipsc-it-fest-2026.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+
+Unnamed repository; edit this file 'description' to name the repository.
+
+ref: refs/heads/main
